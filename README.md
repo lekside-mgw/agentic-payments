@@ -1,10 +1,10 @@
 ---
 
-### agent layer (v2)
+### agent incentives (v3)
 
-introducing approved agents that can execute payments.
+agents are rewarded for executing payments.
 
-this moves the system closer to:
-- automation
-- delegated execution
-- real agentic workflows
+this introduces:
+- economic incentives
+- automated participation
+- potential for competing agents
