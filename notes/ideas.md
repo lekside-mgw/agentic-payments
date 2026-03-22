@@ -1,13 +1,12 @@
-## agent layer
+## agent incentives
 
-not every user should execute transactions manually.
+agents need a reason to act.
 
-agents can:
-- monitor conditions
-- trigger execution
-- act on behalf of users
+solution:
+- attach rewards to execution
+- whoever executes earns
 
-questions:
-- how are agents incentivized?
-- should agents earn fees?
-- can multiple agents compete?
+ideas:
+- multiple agents competing
+- dynamic rewards based on urgency
+- reputation system for agents
