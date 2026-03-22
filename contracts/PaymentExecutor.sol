@@ -9,6 +9,7 @@ contract PaymentExecutor {
         address recipient;
         uint amount;
         uint executeAfter;
+        uint reward;
         bool executed;
     }
 
@@ -46,12 +47,16 @@ contract PaymentExecutor {
     function createPayment(
         address _recipient,
         uint _amount,
-        uint _delay
-    ) public {
+        uint _delay,
+        uint _reward
+    ) public payable {
+        require(msg.value == _amount + _reward, "Incorrect funding");
+
         payments[paymentCount] = Payment(
             _recipient,
             _amount,
             block.timestamp + _delay,
+            _reward,
             false
         );
 
@@ -63,15 +68,16 @@ contract PaymentExecutor {
 
         require(!payment.executed, "Already executed");
         require(block.timestamp >= payment.executeAfter, "Too early");
-        require(address(this).balance >= payment.amount, "Insufficient balance");
+        require(address(this).balance >= payment.amount + payment.reward, "Insufficient balance");
 
         payment.executed = true;
+
+        // pay recipient
         payable(payment.recipient).transfer(payment.amount);
+
+        // reward agent
+        payable(msg.sender).transfer(payment.reward);
     }
-
-    // --- Funds ---
-
-    function deposit() public payable {}
 
     function getBalance() public view returns (uint) {
         return address(this).balance;
