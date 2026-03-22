@@ -1,22 +1,10 @@
-## agentic payments (experiment)
-
-### why this exists
-
-most onchain transactions are manual.
-
-this experiment explores a different model:
-users define intent → system handles execution.
-
 ---
 
-### what I'm testing
+### agent incentives (v3)
 
-- basic payment automation logic
-- conditional execution (if X, then send Y)
-- how agents could plug into this
+agents are rewarded for executing payments.
 
----
-
-### direction
-
-this is an early exploration into agentic commerce systems.
+this introduces:
+- economic incentives
+- automated participation
+- potential for competing agents
